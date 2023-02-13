@@ -1,5 +1,8 @@
 import React from "react";
 import Home from "./pages/Home";
+import Admin from "./pages/Admin";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import {
   createBrowserRouter,
   createRoutesFromElements,  
@@ -12,6 +15,9 @@ const App_router = createBrowserRouter(
   createRoutesFromElements(
     <Route> 
       <Route path="/" element={<Home/>}></Route>
+      <Route path="/admin" element={<Admin/>}></Route>
+      <Route path="/login" element={<Login/>}></Route>
+      <Route path="/register" element={<Register/>}></Route>
     </Route>
   )
 );

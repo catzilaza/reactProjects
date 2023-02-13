@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -136,13 +137,13 @@ function Header() {
                 <button className="btn btn-outline-success mx-1" type="submit">
                   Search
                 </button>
-                <button className="btn btn-outline-success mx-1" type="submit">
-                  Login
-                </button>
-                <button className="btn btn-outline-success mx-1" type="submit">
-                  Register
-                </button>
               </form>
+              <Link to="/login" className="btn btn-outline-success mx-1" type="button">
+                Login
+              </Link>
+              <Link to="/register" className="btn btn-outline-success mx-1" type="submit">
+                Register
+              </Link>
             </div>
           </div>
         </nav>
