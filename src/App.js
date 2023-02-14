@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Landing from "./pages/Landing";
 import {
   createBrowserRouter,
   createRoutesFromElements,  
@@ -18,6 +19,7 @@ const App_router = createBrowserRouter(
       <Route path="/admin" element={<Admin/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/register" element={<Register/>}></Route>
+      <Route path="/landing" element={<Landing/>}></Route>
     </Route>
   )
 );

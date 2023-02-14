@@ -5,59 +5,6 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <div
-        id="carouselHome-CSSAutoplaying"
-        className="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img
-              src="asset/pictures/picview1.jpg"
-              className="d-block w-100"
-              alt="not found"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="asset/pictures/picview2.jpg"
-              className="d-block w-100"
-              alt="not foun"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="asset/pictures/picview3.jpg"
-              className="d-block w-100"
-              alt="not foun"
-            />
-          </div>
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselHome-CSSAutoplaying"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselHome-CSSAutoplaying"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
       <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
@@ -138,15 +85,76 @@ function Header() {
                   Search
                 </button>
               </form>
-              <Link to="/login" className="btn btn-outline-success mx-1" type="button">
+              <Link
+                to="/login"
+                className="btn btn-outline-success mx-1"
+                type="button"
+              >
                 Login
               </Link>
-              <Link to="/register" className="btn btn-outline-success mx-1" type="submit">
+              <Link
+                to="/register"
+                className="btn btn-outline-success mx-1"
+                type="submit"
+              >
                 Register
               </Link>
             </div>
           </div>
         </nav>
+      </div>
+      <div
+        id="carouselHome-CSSAutoplaying"
+        className="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img
+              src="asset/pictures/picview1.jpg"
+              className="d-block w-100"
+              alt="not found"
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src="asset/pictures/picview2.jpg"
+              className="d-block w-100"
+              alt="not foun"
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src="asset/pictures/picview3.jpg"
+              className="d-block w-100"
+              alt="not foun"
+            />
+          </div>
+        </div>
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselHome-CSSAutoplaying"
+          data-bs-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselHome-CSSAutoplaying"
+          data-bs-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Next</span>
+        </button>
       </div>
     </>
   );

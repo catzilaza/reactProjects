@@ -21,10 +21,10 @@ function Admin() {
                 <i className="fas fa-tachometer-alt fs-2 me-2"></i>Home
               </Link>
             </li>
-            <li className="list-group-item">
+            <Link to="/landing" className="list-group-item">
               <i className="fas fa-project-diagram primary-text fs-2 me-2"></i>A
-              third item
-            </li>
+              Landing Page
+            </Link>
             <li className="list-group-item">
               <i className="fas fa-chart-line primary-text fs-2 me-2"></i>A
               fourth item

@@ -1,0 +1,224 @@
+.landing {
+  height: 80px;
+  background-color: rgb(235, 192, 174, 0.7);
+}
+
+.landing-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.landing-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.landing-logo {
+  color: rgb(131, 26, 230);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.landing-menu {
+  margin-top: 20px;
+  display: flex;
+  list-style-type: none;
+}
+
+.landing-menu-link {
+  font-weight: bold;
+  font-size: 1em;
+  padding-right: 2em;
+}
+
+.landing-menu-link a {
+  text-decoration: none;
+}
+
+.landing-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .landing {
+    height: auto;
+    background-color: rgb(235, 192, 174, 0.7);
+  }
+
+  .landing-toggle {
+    display: block;
+    font-size: 2em;
+  }
+
+  .landing-content {
+    padding: 2em;
+    height: auto;
+  }
+
+  .landing-menu {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 140px;
+    left: -100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: rgb(235, 192, 174, 0.5);
+  }
+
+  .landing-menu-active {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 140px;
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+    transition: 0.5s ease;
+    background-color: rgb(235, 192, 174, 0.5);
+  }
+
+  .landing-menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vw;
+    padding: 10px 0;
+  }
+}
+
+.banner {
+  height: 500px;
+  background: url("https://images.unsplash.com/photo-1615557509870-98972c5e1396?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzQ3fHxkZXNzZXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+    no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.banner-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+
+.banner-text {
+  color: black;
+  text-align: center;
+}
+
+.banner-btn {
+  background: white;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: black;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-top: 1em;
+  text-transform: uppercase;
+}
+
+.banner-btn:hover {
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+}
+
+.landing-section {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.landing-section-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.landing-section-content:first-child {
+  padding: 3em 0;
+}
+
+.landing-section-content-left img {
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+}
+
+.landing-section-content-right {
+  padding: 2em;
+  text-align: left;
+}
+
+@media screen and (max-width: 480px) {
+
+  .landing-section-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .landing-section:nth-child(2), .landing-section-content, .landing-section-content-right {
+    order: 1;
+  }
+
+}
+
+.landing-footer {
+  height: 500px;
+  background: url("https://images.unsplash.com/photo-1604287094096-59a7dee979e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA2fHxkZXNzZXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+    no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.landing-footer-container {
+  height: 500px;
+  background: rgb(0, 0, 0, 0.1);
+}
+
+.landing-footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+}
+
+.landing-footer-text {
+  color: black;
+  text-align: center;
+}
+
+.landing-footer-btn {
+  background: white;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: black;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-top: 1em;
+  text-transform: uppercase;
+}
+
+.landing-footer-btn:hover {
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+}
