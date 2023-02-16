@@ -14,52 +14,55 @@ function Login() {
           Home button
         </NavLink>
       </div>
-      <div className="container">
-        <div className="card text-center">
-          <div className="d-flex justify-content-center">
-            <img
-              src="logo192.png"
-              style={{ width: "100px", height: "100px" }}
-              className="card-img-top"
-              alt="..."
-            />
-          </div>
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <form className="row g-3 d-flex flex-column text-center">
-              <div className="col-auto">
-                <label forname="email" className="visually-hidden">
-                  Email
-                </label>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="email@example.com"
-                />
-                <div className="invalid-feedback">กรอกอีเมลไม่ถูกต้อง</div>
-              </div>
 
-              <div className="col-auto">
-                <label forname="password" className="visually-hidden">
-                  Password
-                </label>
-                <input type="password" placeholder="Password" />
-                <div className="invalid-feedback">
-                  กรอกรหัสอย่างน้อย5ตัวอักษร
-                </div>
-              </div>
-              <div className="col-auto">
-                <button type="submit" className="btn btn-primary mb-3">
-                  Confirm identity
-                </button>
-              </div>
-            </form>
-          </div>
+      <div
+        className="card text-center"
+        style={{
+          width: "800px",
+          position: "relative",
+          top: "0px",
+          left: "700px",
+        }}
+      >
+        <div className="container d-flex justify-content-center">
+          <img
+            src="logo192.png"
+            className="card-img-top"
+            alt="..."
+            style={{ width: "100px" }}
+          />
+        </div>
+
+        <div className="card-body container d-flex justify-content-center">
+          <form class="row text-center">
+            <div class="row mb-2">
+              <label for="staticEmail2" class="visually-hidden">
+                Email
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="staticEmail2"
+                value="email@example.com"
+              />
+            </div>
+            <div class="row mb-2">
+              <label for="inputPassword2" class="visually-hidden">
+                Password
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword2"
+                placeholder="Password"
+              />
+            </div>
+            <div class="row mb-2">
+              <button type="submit" class="btn btn-primary mb-3">
+                Confirm identity
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
