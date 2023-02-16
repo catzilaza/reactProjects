@@ -5,13 +5,68 @@ import data from "../dataMock/dataMock";
 
 function Admin() {
   return (
-    <div className="Admin-App container-fulied">
-      <div className="row">
-        <div className="col col-sm-2">
-          <ul
-            className="list-group list-group-flush"
-            style={{ position: "relative", top: "150px", left: "0px" }}
+    <div className="Admin-App container-fluid">
+      <div className="row ">
+        <nav
+          className="navbar navbar-expand-lg navbar-light 
+                             py-4 px-4"
+          id="Admin-App-NAVBAR"
+        >
+          <i
+            className="fas fa-align-left primary-text fs-4 me-3"
+            id="menu-toggle"
+          ></i>
+          <h2 className="navbar-brand fs-2 m-0">Dashboard</h2>
+
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar"
           >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            className="navbar-nav ms-auto mb-2 mb-lg-0 dropdown
+                             collapse navbar-collapse justify-content-end"
+            id="offcanvasDarkNavbar"
+          >
+            <div className="btn-group">
+              <button
+                className="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="true"
+                aria-expanded="false"
+              >
+                <i className="fas fa-user me-2 "></i>Ariya
+              </button>
+              <ul className="dropdown-menu">
+                <li>
+                  <a className="dropdown-item" href="#3">
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#3">
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#3">
+                    Loguot
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div className="row" id="Admin-App-Row2">
+        <div className="col col-sm-2">
+          <ul className="list-group" id="Admin-App-UL">
             <li className="list-group-item">
               <i className="fas fa-user-secret primary-text fs-2 me-2"></i>An
               item
@@ -50,106 +105,52 @@ function Admin() {
           </ul>
         </div>
         <div className="col col-sm-10">
-          <nav
-            className="navbar navbar-expand-lg navbar-light bg-transparent
-             py-4 px-4"
-          >
-            <div className="d-flex align-items-center">
-              <i
-                className="fas fa-align-left primary-text fs-4 me-3"
-                id="menu-toggle"
-              ></i>
-              <h2 className="navbar-brand fs-2 m-0">Dashboard</h2>
-            </div>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasDarkNavbar"
-              aria-controls="offcanvasDarkNavbar"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div
-              className="navbar-nav ms-auto mb-2 mb-lg-0 dropdown
-               collapse navbar-collapse justify-content-end"
-              id="offcanvasDarkNavbar"
-            >
-              <div className="btn-group">
-                <button
-                  className="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  data-bs-auto-close="true"
-                  aria-expanded="false"
-                >
-                  <i className="fas fa-user me-2"></i>Ariya
-                </button>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#3">
-                      Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#3">
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#3">
-                      Loguot
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <div className="container-fluid px-4">
-            <div className="row g-3 my-2">
-              <div className="col-md-3">
-                <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                  <div>
-                    <h3 className="fs-2">720</h3>
-                    <p className="fs-5">Products</p>
+          <div className="row">
+            <div className="container text-center">
+              <div className="row row-cols-1 row-cols-md-2 g-4">
+                <div className="col">
+                  <div className="card">
+                    <div className="card-body">
+                      <h3 className="fs-2">720</h3>
+                      <p className="fs-5">Products</p>
+                      <i className="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
                   </div>
-                  <i className="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                 </div>
-              </div>
-              <div className="col-md-3">
-                <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                  <div>
-                    <h3 className="fs-2">420</h3>
-                    <p className="fs-5">Sales</p>
+                <div className="col">
+                  <div className="card">
+                    <div className="card-body">
+                      <h3 className="fs-2">420</h3>
+                      <p className="fs-5">Sales</p>
+                      <i className="fas fa-hand-holding fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
                   </div>
-                  <i className="fas fa-hand-holding fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                 </div>
-              </div>
-              <div className="col-md-3">
-                <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                  <div>
-                    <h3 className="fs-2">3899</h3>
-                    <p className="fs-5">Delivery</p>
+                <div className="col">
+                  <div className="card">
+                    <div className="card-body">
+                      <h3 className="fs-2">3899</h3>
+                      <p className="fs-5">Delivery</p>
+                      <i className="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
                   </div>
-                  <i className="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                 </div>
-              </div>
-              <div className="col-md-3">
-                <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                  <div>
-                    <h3 className="fs-2">25%</h3>
-                    <p className="fs-5">Increase</p>
+                <div className="col">
+                  <div className="card">
+                    <div className="card-body">
+                      <h3 className="fs-2">25%</h3>
+                      <p className="fs-5">Increase</p>
+                      <i className="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
                   </div>
-                  <i className="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                 </div>
               </div>
             </div>
           </div>
-          <div className="row my-5">
-            <div className="container d-flex justify-content-around align-items-center mb-4">
-              <h3 className="fs-4 mb-3">Recent Orders</h3>
-              <div className="container d-flex align-items-center">
+          <div className="row">
+            <div className="container-fluid d-flex justify-content-around align-items-center mb-4">
+              <h3 className="fs-4 m-3">Recent Orders</h3>
+              <div className="container-fluid d-flex align-items-center">
                 <h3 className="fs-4 mb-3"> เพิ่มสินค้า </h3>
                 <Link
                   to="#5"
@@ -168,7 +169,9 @@ function Admin() {
                 </Link>
               </div>
             </div>
-            <div className="col">
+          </div>
+          <div className="row">
+            <div className="container-fluid text-center">
               <table className="table bg-white rounded shadow-sm table-hover">
                 <thead>
                   <tr>

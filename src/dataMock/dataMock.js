@@ -36,6 +36,27 @@ const dataItem = [
       quantity: "100",
       itempic: "asset/pic_dessert/pic1.jpg"
     },
+    {
+      id_data: "007",
+      name: "ชื่อขนม",
+      price: "25",
+      quantity: "100",
+      itempic: "asset/pic_dessert/pic1.jpg"
+    },
+    {
+      id_data: "008",
+      name: "ชื่อขนม",
+      price: "25",
+      quantity: "100",
+      itempic: "asset/pic_dessert/pic1.jpg"
+    },
+    {
+      id_data: "006",
+      name: "ชื่อขนม",
+      price: "25",
+      quantity: "100",
+      itempic: "asset/pic_dessert/pic1.jpg"
+    },
   ]
 
   export default dataItem;

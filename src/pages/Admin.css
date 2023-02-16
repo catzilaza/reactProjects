@@ -1,6 +1,42 @@
 .Admin-App {
-    background-color: rgb(231, 231, 186);
+  background-color: rgb(241, 223, 184);
 }
 
+#Admin-App-NAVBAR {
+    position:fixed;
+    background-color: rgb(230, 190, 104);
+    z-index: 1;
+}
 
+#Admin-App-Row2 {
+  position: relative;
+  top: 150px;
+  left: 0px;
+}
 
+#Admin-App-UL {
+  position: fixed;
+  top: 150px;
+  left: 30px;
+}
+
+@media screen and (max-width: 480px) {
+    #Admin-App_NAVBAR {
+        position:relative;
+        top: 0px;
+        left: 0px;        
+    }
+    
+    #Admin-App-Row2 {
+      position: relative;
+      top: 0px;
+      left: 0px;
+    }
+    
+    #Admin-App-UL {
+      position: relative;
+      top: 0px;
+      left: 0px;
+      margin: 20px;
+    }
+}
