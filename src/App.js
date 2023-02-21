@@ -4,6 +4,7 @@ import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Landing from "./pages/Landing";
+import LearnCSS from "./pages/LearnCSS";
 import {
   createBrowserRouter,
   createRoutesFromElements,  
@@ -20,6 +21,7 @@ const App_router = createBrowserRouter(
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/register" element={<Register/>}></Route>
       <Route path="/landing" element={<Landing/>}></Route>
+      <Route path="/learncss" element={<LearnCSS/>}></Route>
     </Route>
   )
 );

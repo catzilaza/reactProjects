@@ -1,0 +1,34 @@
+
+
+/* .LearnCSS-App {
+    background-color: rgb(130, 231, 197);
+    border: 1px rgb(15, 15, 15);
+    padding: 16px;     
+    border-style: dashed;
+    box-sizing: border-box;
+} */
+
+.flexbox {
+    display:flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    background-color: aquamarine;
+    
+}
+
+.item {
+    display: block;    
+    box-sizing: border-box;
+    width: 33.33%;
+    background-color: black;
+}
+
+.content {
+    background-color: rgb(156, 156, 219);
+    border: 4px rgb(231, 75, 57);
+    padding: 16px;
+    border-style: solid;
+    box-sizing: border-box;   
+    
+}
+

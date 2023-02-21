@@ -5,7 +5,7 @@ import data from "../dataMock/dataMock";
 
 function Admin() {
   return (
-    <div className="Admin-App container-fluid">
+    <div className="Admin-App ">
       <div className="row ">
         <nav
           className="navbar navbar-expand-lg navbar-light 
@@ -66,48 +66,54 @@ function Admin() {
       </div>
       <div className="row" id="Admin-App-Row2">
         <div className="col col-sm-2">
-          <ul className="list-group" id="Admin-App-UL">
-            <li className="list-group-item">
-              <i className="fas fa-user-secret primary-text fs-2 me-2"></i>An
-              item
-            </li>
-            <li className="list-group-item">
-              <Link to="/">
-                <i className="fas fa-tachometer-alt fs-2 me-2"></i>Home
+          <div className="Admin-App-UL" id="Admin-App-UL">
+            <ul className="list-group">
+              <li className="list-group-item">
+                <i className="fas fa-user-secret primary-text fs-2 me-2"></i>
+                An item
+              </li>
+              <li className="list-group-item">
+                <Link to="/">
+                  <i className="fas fa-tachometer-alt fs-2 me-2"></i>Home
+                </Link>
+              </li>
+              <Link to="/landing" className="list-group-item">
+                <i className="fas fa-project-diagram primary-text fs-2 me-2"></i>
+                A Landing Page
               </Link>
-            </li>
-            <Link to="/landing" className="list-group-item">
-              <i className="fas fa-project-diagram primary-text fs-2 me-2"></i>A
-              Landing Page
-            </Link>
-            <li className="list-group-item">
-              <i className="fas fa-chart-line primary-text fs-2 me-2"></i>A
-              fourth item
-            </li>
-            <li className="list-group-item">
-              <i className="fas fa-paperclip primary-text fs-2 me-2"></i>Reports
-            </li>
-            <li className="list-group-item">
-              <i className="fas fa-shopping-cart primary-text fs-2 me-2"></i>
-              Store Mng
-            </li>
-            <li className="list-group-item">
-              <i className="fas fa-comment-dots primary-text fs-2 me-2"></i>Chat
-            </li>
-            <li className="list-group-item">
-              <i className="fas fa-map-marker-alt primary-text fs-2 me-2"></i>
-              Outlet
-            </li>
-            <li className="list-group-item">
-              <i className="fas fa-project-diagram primary-text fs-2 me-2"></i>
-              Logout
-            </li>
-          </ul>
+              <li className="list-group-item">
+                <i className="fas fa-chart-line primary-text fs-2 me-2"></i>A
+                fourth item
+              </li>
+              <li className="list-group-item">
+                <i className="fas fa-paperclip primary-text fs-2 me-2"></i>
+                Reports
+              </li>
+              <li className="list-group-item">
+                <i className="fas fa-shopping-cart primary-text fs-2 me-2"></i>
+                Store Mng
+              </li>
+              <li className="list-group-item">
+                <i className="fas fa-comment-dots primary-text fs-2 me-2"></i>
+                Chat
+              </li>
+              <li className="list-group-item">
+                <i className="fas fa-map-marker-alt primary-text fs-2 me-2"></i>
+                Outlet
+              </li>
+              <li className="list-group-item">
+                <Link to="/learncss">
+                  <i className="fas fa-project-diagram primary-text fs-2 me-2"></i>
+                  Logout/LearnCSS
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="col col-sm-10">
           <div className="row">
-            <div className="container text-center">
-              <div className="row row-cols-1 row-cols-md-2 g-4">
+            <div className="container text-center bg-primary">
+              <div className="row row-cols-1 row-cols-md-4 g-4">
                 <div className="col">
                   <div className="card">
                     <div className="card-body">
@@ -148,10 +154,11 @@ function Admin() {
             </div>
           </div>
           <div className="row">
-            <div className="container-fluid d-flex justify-content-around align-items-center mb-4">
-              <h3 className="fs-4 m-3">Recent Orders</h3>
-              <div className="container-fluid d-flex align-items-center">
-                <h3 className="fs-4 mb-3"> เพิ่มสินค้า </h3>
+            <div className="col">
+              <div className="container-fulied d-flex justify-content-center align-self-center mt-4 mb-4 bg-danger">
+                <div>
+                  <h3 className="fs-4 m-3">Recent Orders เพิ่มสินค้า</h3>
+                </div>
                 <Link
                   to="#5"
                   type="button"
