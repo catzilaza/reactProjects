@@ -93,6 +93,13 @@ function Header() {
                 Login
               </Link>
               <Link
+                to="/logout"
+                className="btn btn-outline-success mx-1"
+                type="button"
+              >
+                Logout
+              </Link>
+              <Link
                 to="/register"
                 className="btn btn-outline-success mx-1"
                 type="submit"

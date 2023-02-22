@@ -83,8 +83,7 @@ function Register() {
                     className="form-control"
                     id="firstname"
                     name="firstname"
-                    placeholder="First Name"
-                    // onChange={}
+                    placeholder="First Name"                   
                   />
                 </div>
                 <div className="row mb-3">
@@ -128,7 +127,7 @@ function Register() {
                     Email
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     className="form-control"
                     id="email"
                     name="email"
