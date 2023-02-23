@@ -15,6 +15,7 @@ function Register() {
     console.log("data : ", data.get("password"));
 
     const jsondata = {
+      userID: data.get("userID"),
       firstname: data.get("firstname"),
       lastname: data.get("lastname"),
       telephone: data.get("telephone"),
@@ -74,6 +75,18 @@ function Register() {
                 className="row text-center"
                 onSubmit={handleSubmitRegisterForm}
               >
+                <div className="row mb-3">
+                  <label htmlFor="labeluserID" className="visually-hidden">
+                  userID
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="userID"
+                    name="userID"
+                    placeholder="userID"                   
+                  />
+                </div>
                 <div className="row mb-3">
                   <label htmlFor="labelfirstname" className="visually-hidden">
                     First Name
