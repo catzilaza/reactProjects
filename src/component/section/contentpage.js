@@ -10,15 +10,13 @@ function Contentpage(props) {
       <div className="card p-0" key={item.productID}>
         {/* {item.img.data.data.toString("base64")} */}
         <img
-          src={`data:image/png;base64, ${item.img.data.data.toString(
-            "base64"
-          )}`}
+          src={`data:image/png;base64, ${item.img.data.data.toString("base64")}`}
           className="card-img-top img-fluid"
           alt="error"
-          style={{ height: "150px" }}
+          style={{ height: "150px"}}
         />
         <div className="card-body">
-          <h5 className="card-title">{item.name}</h5>
+          <h5 className="card-title" style={{ overflow: "auto"}}>{item.name}</h5>
           <p className="card-text">ราคา : {item.price} บาท</p>
           <a href="#3" className="btn btn-primary">
             buy
