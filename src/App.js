@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Landing from "./pages/Landing";
 import LearnCSS from "./pages/LearnCSS";
 import Logout from "./pages/Logout";
+import TableReact from "./pages/TableReact";
 import {
   createBrowserRouter,
   createRoutesFromElements,  
@@ -24,6 +25,7 @@ const App_router = createBrowserRouter(
       <Route path="/landing" element={<Landing/>}></Route>
       <Route path="/learncss" element={<LearnCSS/>}></Route>
       <Route path="/logout" element={<Logout/>}></Route>
+      <Route path="/tablereact" element={<TableReact/>}></Route>
     </Route>
   )
 );

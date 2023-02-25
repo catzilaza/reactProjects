@@ -5,7 +5,6 @@ import "./Admin.css";
 import axios from "axios";
 
 function Admin() {
-
   var datat = [];
   const [datas, setDatas] = useState(null);
   const [error, setError] = useState(null);
@@ -16,12 +15,9 @@ function Admin() {
   const [quantity, setQuantity] = useState(null);
   const [desc, setDesc] = useState(null);
   const [title, setTitle] = useState(null);
-  const [image, setImg] = useState(null); 
+  const [image, setImg] = useState(null);
 
-  const [deleteProductID, setdeleteProductID] = useState(null); 
-  
-  
-  
+  const [deleteProductID, setdeleteProductID] = useState(null);
 
   // async  function handleSubmitInsertProductForm(event) {
   //     event.preventDefault();
@@ -135,8 +131,8 @@ function Admin() {
     event.preventDefault();
 
     console.log("async function handleDelete(e) : ", deleteProductID);
-    
-     console.log("deleteProductID : ", deleteProductID);
+
+    console.log("deleteProductID : ", deleteProductID);
 
     await axios
       .delete(`http://localhost:3000/product/${deleteProductID}`)
@@ -286,8 +282,10 @@ function Admin() {
                 Chat
               </li>
               <li className="list-group-item">
-                <i className="fas fa-map-marker-alt primary-text fs-2 me-2"></i>
-                Outlet
+                <Link to="/tablereact">
+                  <i className="fas fa-map-marker-alt primary-text fs-2 me-2"></i>
+                  Outlet/TableReact
+                </Link>
               </li>
               <li className="list-group-item">
                 <Link to="/learncss">
@@ -380,7 +378,7 @@ function Admin() {
                   </tr>
                 </thead>
                 <tbody>
-                  {datat.map((item) => {
+                  {datas.map((item) => {
                     return (
                       <tr key={item.productID}>
                         <td>{item.productID}</td>
@@ -469,7 +467,7 @@ function Admin() {
                 className="row g-3 container d-flex flex-column"
                 id="dataForm"
                 method="post"
-                encType="multipart/form-data"                
+                encType="multipart/form-data"
                 onSubmit={(e) => {
                   handleSubmitInsertProductForm(e);
                 }}
@@ -620,16 +618,20 @@ function Admin() {
               ></button>
             </div>
             <div className="modal-body">
-              <form className="row g-3"
-                    id="deleteForm"
-                    method="delete"
-                    encType="multipart/form-data"
-                    onSubmit={(e) => {
-                      handleSubmitDeleteProductForm(e);
-                    }}
+              <form
+                className="row g-3"
+                id="deleteForm"
+                method="delete"
+                encType="multipart/form-data"
+                onSubmit={(e) => {
+                  handleSubmitDeleteProductForm(e);
+                }}
               >
                 <div className="col-auto">
-                  <label htmlFor="labeldeleteProductID" className="visually-hidden">
+                  <label
+                    htmlFor="labeldeleteProductID"
+                    className="visually-hidden"
+                  >
                     Product ID
                   </label>
                   <input
@@ -688,7 +690,7 @@ function Admin() {
                 className="row g-3 container d-flex flex-column"
                 id="dataUpdateForm"
                 method="put"
-                encType="multipart/form-data/application/x-www-form-urlencoded"                
+                encType="multipart/form-data/application/x-www-form-urlencoded"
                 onSubmit={(e) => {
                   handleSubmitUpdateProductForm(e);
                 }}

@@ -4,7 +4,8 @@ import Contentpage from "../component/section/contentpage";
 import Sideleft from "../component/section/sideleft";
 import "./Home.css";
 import axios from "axios";
-//import {Buffer} from 'buffer';
+//import data from "../dataMock/dataMock";
+import {Buffer} from 'buffer';
 window.Buffer = window.Buffer || require("buffer").Buffer;
 function Home() {
 

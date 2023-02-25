@@ -8,7 +8,7 @@ function Contentpage(props) {
   const contentpage_card = (item) => {
     return (
       <div className="card p-0" key={item.productID}>
-        {/* {item.img.data.data.toString("base64")} */}
+        {/* {`data:image/png;base64, ${item.img.data.data.toString("base64")}`} */}
         <img
           src={`data:image/png;base64, ${item.img.data.data.toString("base64")}`}
           className="card-img-top img-fluid"
