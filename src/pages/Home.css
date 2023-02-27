@@ -2,5 +2,6 @@
     margin: 0;
     padding: 30px 50px 30px 50px;    
     box-sizing: border-box;
-    background-color: rgb(170, 222, 238)    
+    background-color: rgb(159, 220, 228); 
+    background: linear-gradient(45deg, #eecdae, #eccc9c); 
 }

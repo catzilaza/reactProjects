@@ -18,7 +18,7 @@ function Contentpage(props) {
         <div className="card-body">
           <h5 className="card-title" style={{ overflow: "auto"}}>{item.name}</h5>
           <p className="card-text">ราคา : {item.price} บาท</p>
-          <a href="#3" className="btn btn-primary">
+          <a href="#3" className="btn btn-primary" onClick={()=>{alert("Add to cart")}}>
             buy
           </a>
         </div>

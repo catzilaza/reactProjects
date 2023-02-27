@@ -3,6 +3,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 
 function Header() {
+  const testvalue = 5;
   return (
     <>
       <div>
@@ -105,6 +106,14 @@ function Header() {
                 type="submit"
               >
                 Register
+              </Link>
+              <Link
+                to="/cart"
+                className="btn btn-outline-success mx-1"
+                type="button"
+              >
+                CART
+                <span class="badge text-bg-danger mx-1">{testvalue}</span>
               </Link>
             </div>
           </div>

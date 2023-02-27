@@ -1,15 +1,15 @@
 .TableReact {
     margin: 0;
-    position: absolute;
+    /* position: absolute;
     top: 10%;
-    left: 30%;
-    max-height: 800px;
+    left: 30%; */
+    max-height: 1200px;   
     overflow-y: scroll;    
     background: linear-gradient(45deg, #49a09d, #5f2c82);    
     
 }
 
-table {
+.TableReact.table {
     width: 800px;
     height: 800px;
     border-collapse: collapse;
@@ -18,29 +18,29 @@ table {
     
 }
 
-table th,td {
+.TableReact.table>th td {
     padding: 15px;
     background-color: rgba(255,255,255,0.2 alpha);
-    /* color: white; */
+    color: white;
 }
 
-th {
+.TableReact.table>th {
     text-align: left;
 }
 
-thead th {
+.TableReact.table>thead th {
     background-color: #55608f;
 }
 
-tbody tr:hover {
+.TableReact.table>tbody tr:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-tbody td {
+.TableReact.table>tbody td {
     position: relative;
 }
 
-tbody td:hover:before {
+.TableReact.table>tbody td:hover:before {
     content: "";
     position: absolute;
     left: 0;
@@ -50,3 +50,41 @@ tbody td:hover:before {
     background-color: rgba(240, 102, 102, 0.2);
     z-index: -1;
 } 
+
+@media screen and (max-width:578px) {
+
+    #myTable {
+        background-color: #9bcac9;
+    }
+
+    #myTableThead {
+        display: none;
+    } 
+    
+    #myTable, #myTableTbody, #myTableTr, #myTableTd {
+        display: block;
+        width: 100%;
+    }
+
+    #myTableTr {
+        margin-bottom: 15px;
+    }
+
+    #myTableTd {
+        text-align: right;
+        padding-left: 50%;
+        text-align: right;
+        position: relative;
+    }  
+    
+    #myTableTd::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}

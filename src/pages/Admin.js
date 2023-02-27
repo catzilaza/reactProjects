@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Admin.css";
 //import data from "../dataMock/dataMock";
 import axios from "axios";
+import TableAdmin from "../component/tableadmin/tableadmin";
 
 function Admin() {
   var datat = [];
@@ -17,7 +18,7 @@ function Admin() {
   const [title, setTitle] = useState(null);
   const [image, setImg] = useState(null);
 
-  const [deleteProductID, setdeleteProductID] = useState(null);
+  //const [deleteProductID, setdeleteProductID] = useState(null);
 
   // async  function handleSubmitInsertProductForm(event) {
   //     event.preventDefault();
@@ -127,66 +128,66 @@ function Admin() {
       });
   }
 
-  async function handleSubmitDeleteProductForm(event) {
-    event.preventDefault();
+  // async function handleSubmitDeleteProductForm(event) {
+  //   event.preventDefault();
 
-    console.log("async function handleDelete(e) : ", deleteProductID);
+  //   console.log("async function handleDelete(e) : ", deleteProductID);
 
-    console.log("deleteProductID : ", deleteProductID);
+  //   console.log("deleteProductID : ", deleteProductID);
 
-    await axios
-      .delete(`http://localhost:3000/product/${deleteProductID}`)
-      .then((response) => {
-        console.log("Response Delete Product : ", response);
-      })
-      .catch((error) => {
-        console.log("Error Delete Product : ", error);
-      });
-  }
+  //   await axios
+  //     .delete(`http://localhost:3000/product/${deleteProductID}`)
+  //     .then((response) => {
+  //       console.log("Response Delete Product : ", response);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error Delete Product : ", error);
+  //     });
+  // }
 
-  async function handleSubmitUpdateProductForm(event) {
-    event.preventDefault();
+  // async function handleSubmitUpdateProductForm(event) {
+  //   event.preventDefault();
 
-    const data = new FormData(event.currentTarget);
-    console.log("data : ", data.get("productID"));
-    console.log("data : ", data.get("name"));
-    console.log("data : ", data.get("price"));
-    console.log("data : ", data.get("quantity"));
-    console.log("data : ", data.get("desc"));
-    console.log("data : ", data.get("title"));
-    console.log("data : ", data.get("image"));
+  //   const data = new FormData(event.currentTarget);
+  //   console.log("data : ", data.get("productID"));
+  //   console.log("data : ", data.get("name"));
+  //   console.log("data : ", data.get("price"));
+  //   console.log("data : ", data.get("quantity"));
+  //   console.log("data : ", data.get("desc"));
+  //   console.log("data : ", data.get("title"));
+  //   console.log("data : ", data.get("image"));
 
-    const jsondata = {
-      productID: data.get("productID"),
-      name: data.get("name"),
-      price: data.get("price"),
-      quantity: data.get("quantity"),
-      desc: data.get("desc"),
-      title: data.get("title"),
-      image: data.get("image"),
-    };
+  //   const jsondata = {
+  //     productID: data.get("productID"),
+  //     name: data.get("name"),
+  //     price: data.get("price"),
+  //     quantity: data.get("quantity"),
+  //     desc: data.get("desc"),
+  //     title: data.get("title"),
+  //     image: data.get("image"),
+  //   };
 
-    // let formData = new FormData();
+  //   let formData = new FormData();
 
-    // formData.append("productID", productID);
-    // formData.append("name", name);
-    // formData.append("price", price);
-    // formData.append("quantity", quantity);
-    // formData.append("title", desc);
-    // formData.append("desc", title);
-    // formData.append("image", image);
+  //   formData.append("productID", productID);
+  //   formData.append("name", name);
+  //   formData.append("price", price);
+  //   formData.append("quantity", quantity);
+  //   formData.append("title", desc);
+  //   formData.append("desc", title);
+  //   formData.append("image", image);
 
-    console.log("handleSubmitUpdateProductForm", jsondata);
+  //   console.log("handleSubmitUpdateProductForm", jsondata);
 
-    await axios
-      .put(`http://localhost:3000/product`, jsondata)
-      .then((response) => {
-        console.log("Insert Product Success : ", response);
-      })
-      .catch((error) => {
-        console.log("Error Insert Product : ", error);
-      });
-  }
+  //   await axios
+  //     .put(`http://localhost:3000/product`, jsondata)
+  //     .then((response) => {
+  //       console.log("Insert Product Success : ", response);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error Insert Product : ", error);
+  //     });
+  // }
 
   return (
     <div className="Admin-App ">
@@ -364,7 +365,7 @@ function Admin() {
             </div>
           </div>
           <div className="row">
-            <div className="container-fluid text-center">
+            {/* <div className="container-fluid text-center">
               <table className="table bg-white rounded shadow-sm table-hover">
                 <thead>
                   <tr>
@@ -436,7 +437,8 @@ function Admin() {
                   })}
                 </tbody>
               </table>
-            </div>
+            </div> */}
+            <TableAdmin datas={datas}></TableAdmin>
           </div>
         </div>
       </div>
@@ -605,7 +607,7 @@ function Admin() {
       </div>
 
       {/* Modal  Delete Product  */}
-      <div className="modal" tabIndex="-1" id="deleteModal">
+      {/* <div className="modal" tabIndex="-1" id="deleteModal">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -662,10 +664,10 @@ function Admin() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Modal Update Product*/}
-      <div
+      {/* <div
         className="modal fade"
         id="adminUpdateModal"
         tabIndex="-1"
@@ -819,13 +821,10 @@ function Admin() {
               >
                 Close
               </button>
-              {/* <button type="submit" className="btn btn-primary">
-                Save changes
-              </button> */}
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
