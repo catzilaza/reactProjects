@@ -1,44 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Register.css";
 import { NavLink } from "react-router-dom";
+//import axios from "axios";
+import {makeregister} from "../function/register";
 
 function Register() {
-  function handleSubmitRegisterForm(event) {
+  const [data, setData] = useState({
+    userID: "",
+    firstname: "",
+    lastname: "",
+    telephone: "",
+    address: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (event) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+  };
+
+  const handleOnSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    
+    makeregister(data);
+    
+    // await axios
+    //   .post(process.env.REACT_APP_API + 'register', data)
+    //   .then((response) => {
+    //     console.log(response);
+    //   });
+  };
 
-    console.log("data : ", data.get("firstname"));
-    console.log("data : ", data.get("lastname"));
-    console.log("data : ", data.get("telephone"));
-    console.log("data : ", data.get("address"));
-    console.log("data : ", data.get("email"));
-    console.log("data : ", data.get("password"));
+  // function handleSubmitRegisterForm(event) {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
 
-    const jsondata = {
-      userID: data.get("userID"),
-      firstname: data.get("firstname"),
-      lastname: data.get("lastname"),
-      telephone: data.get("telephone"),
-      address: data.get("address"),
-      email: data.get("email"),
-      password: data.get("password"),
-    };
+  //   console.log("data : ", data.get("firstname"));
+  //   console.log("data : ", data.get("lastname"));
+  //   console.log("data : ", data.get("telephone"));
+  //   console.log("data : ", data.get("address"));
+  //   console.log("data : ", data.get("email"));
+  //   console.log("data : ", data.get("password"));
 
-    fetch("http://localhost:3000/register", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(jsondata),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }
+  //   const jsondata = {
+  //     userID: data.get("userID"),
+  //     firstname: data.get("firstname"),
+  //     lastname: data.get("lastname"),
+  //     telephone: data.get("telephone"),
+  //     address: data.get("address"),
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   };
+
+  //   fetch("http://localhost:3000/register", {
+  //     method: "POST", // or 'PUT'
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(jsondata),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log("Success:", data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // }
 
   return (
     <div className="Header-App-Register">
@@ -58,7 +86,7 @@ function Register() {
           <div
             className="card text-center bg-info"
             style={{
-              width: "600px"
+              width: "600px",
             }}
           >
             <div className="container d-flex justify-content-center">
@@ -73,18 +101,20 @@ function Register() {
             <div className="card-body container d-flex justify-content-center">
               <form
                 className="row text-center"
-                onSubmit={handleSubmitRegisterForm}
+                //onSubmit={handleSubmitRegisterForm}
+                onSubmit={handleOnSubmit}
               >
                 <div className="row mb-3">
                   <label htmlFor="labeluserID" className="visually-hidden">
-                  userID
+                    userID
                   </label>
                   <input
                     type="text"
                     className="form-control"
                     id="userID"
                     name="userID"
-                    placeholder="userID"                   
+                    placeholder="userID"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row mb-3">
@@ -96,7 +126,8 @@ function Register() {
                     className="form-control"
                     id="firstname"
                     name="firstname"
-                    placeholder="First Name"                   
+                    placeholder="First Name"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row mb-3">
@@ -109,6 +140,7 @@ function Register() {
                     id="lastname"
                     name="lastname"
                     placeholder="Last Name"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row mb-3">
@@ -121,6 +153,7 @@ function Register() {
                     id="telephone"
                     name="telephone"
                     placeholder="Telephone"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row mb-3">
@@ -133,6 +166,7 @@ function Register() {
                     id="address"
                     name="address"
                     placeholder="address"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row mb-3">
@@ -145,6 +179,7 @@ function Register() {
                     id="email"
                     name="email"
                     placeholder="email"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row mb-3">
@@ -157,6 +192,7 @@ function Register() {
                     id="password"
                     name="password"
                     placeholder="Password"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row mt-4 mb-2">

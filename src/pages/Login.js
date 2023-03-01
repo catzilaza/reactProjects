@@ -1,69 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { NavLink } from "react-router-dom";
+import {makelogin} from "../function/login";
+import Header from "../component/header/Header";
 
 function Login() {
-async  function handleSubmitLoginForm(event) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
 
-    console.log("data : ", data.get("email"));
-    console.log("data : ", data.get("password"));
+  const [data, setData] = useState({    
+    email: "",
+    password: "",
+  });
 
-    const jsondata = {
-      email: data.get("email"),
-      password: data.get("password"),
-    };
+  const handleChange = (event) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+  };
 
-    // const fetchOptions = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json",
-    //   },
-    //   body: JSON.stringify(jsondata),
-    // }   
-    // const url = "http://localhost:3000/login";
-    // const response = await fetch(url,fetchOptions);
-
-    // if (!response.ok) {
-    //   const errorMessage = await response.text();
-    //   // throw new Error(errorMessage);
-    //   console.log("errorMessage Response : ", errorMessage);
-    // }else {
-    //   console.log("Response : ", response);
-    // }
-
-   await fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jsondata),
-    })
-      .then((response) => response.json())
-      .then((data) => {            
-        if(data.status === 'ok') {
-          console.log('Login Success  Redirect to Home Page: ', data);
-          alert('Login Success');
-          localStorage.setItem('token', data.token);          
-          window.location = '/';
-        }else {
-          console.log('Login Failed : ', data);
-          localStorage.removeItem('token');
-          alert('Login Failed : Register Please Redirect to Register Page');
-          window.location = '/register';
-        }
-        
-      })
-      .catch((error) => {
-        console.log('Error:', error);
-      });
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();    
+    
+    console.log("handleOnSubmit");
+    makelogin(data);
   }
+
+  // async function handleSubmitLoginForm(event) {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+
+  //   console.log("data : ", data.get("email"));
+  //   console.log("data : ", data.get("password"));
+
+  //   const jsondata = {
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   };
+
+  //   await fetch("http://localhost:3000/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(jsondata),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.status === "ok") {
+  //         console.log("Login Success  Redirect to Home Page: ", data);
+  //         alert("Login Success");
+  //         localStorage.setItem("token", data.token);
+  //         window.location = "/";
+  //       } else {
+  //         console.log("Login Failed : ", data);
+  //         localStorage.removeItem("token");
+  //         alert("Login Failed : Register Please Redirect to Register Page");
+  //         window.location = "/register";
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error:", error);
+  //     });
+  // }
 
   return (
     <div className="Login-App">
       <div className="container d-flex flex-column justify-content-center align-items-center">
+        <div>
+          <Header></Header>
+        </div>
         <div className="row">
           <NavLink
             to="/"
@@ -92,7 +94,9 @@ async  function handleSubmitLoginForm(event) {
             <div className="card-body container d-flex justify-content-center">
               <form
                 className="row text-center"
-                onSubmit={handleSubmitLoginForm}
+                //onSubmit={handleSubmitLoginForm}
+                onSubmit={handleOnSubmit}
+
               >
                 <div className="row mb-2">
                   <label htmlFor="labelemail" className="visually-hidden">
@@ -104,6 +108,7 @@ async  function handleSubmitLoginForm(event) {
                     id="email"
                     name="email"
                     placeholder="email@example.com"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row mb-2">
@@ -116,6 +121,7 @@ async  function handleSubmitLoginForm(event) {
                     id="password"
                     name="password"
                     placeholder="Password"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row mb-2">
@@ -133,3 +139,25 @@ async  function handleSubmitLoginForm(event) {
 }
 
 export default Login;
+
+
+    /* 
+        const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(jsondata),
+    }
+    const url = "http://localhost:3000/login";
+    const response = await fetch(url,fetchOptions);
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      // throw new Error(errorMessage);
+      console.log("errorMessage Response : ", errorMessage);
+    }else {
+      console.log("Response : ", response);
+    }
+    */

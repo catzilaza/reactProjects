@@ -113,7 +113,7 @@ function Header() {
                 type="button"
               >
                 CART
-                <span class="badge text-bg-danger mx-1">{testvalue}</span>
+                <span className="badge text-bg-danger mx-1">{testvalue}</span>
               </Link>
             </div>
           </div>
