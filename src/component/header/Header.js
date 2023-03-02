@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+//import { configureStore } from "@reduxjs/toolkit";
+import { counterSlice, store } from "../../store/cartSlice";
+
 
 function Header() {
-  const testvalue = 5;
+
+  const [cartValue, setCartValue] = useState(0);
+  var value = 0;  
+
+  store.subscribe(() => {
+    console.log("Header() store.subscribe : ", store.getState().value); 
+    console.log("Header() counterSlice.name : ", counterSlice.name);    
+    console.log("Header() cartValue store.subscribe : ", cartValue); 
+    value= store.getState().value;
+    console.log("value : ", value);          
+  }); 
+
+  //store.dispatch(incremented());
+
+  useEffect(()=>{
+    store.subscribe(()=>{
+      console.log("BEFORE Header() useEffect --> store.subscribe : ", store.getState().value);
+      setCartValue(value);
+    });
+    //setCartValue(value);
+  }, [value]);
+
+  console.log("Header() cartValue : ", cartValue);
+
   return (
     <>
       <div>
@@ -113,7 +139,7 @@ function Header() {
                 type="button"
               >
                 CART
-                <span className="badge text-bg-danger mx-1">{testvalue}</span>
+                <span className="badge text-bg-danger mx-1">{cartValue}</span>
               </Link>
             </div>
           </div>

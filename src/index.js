@@ -5,10 +5,14 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+//Redux
+//import { Provider } from "react-redux";
+//import { counterSlice } from "../src/store/userSlice";
+//const store = createStore(rootReducer, composeWithDevTools);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>    
+  <React.StrictMode>
     <App />
   </React.StrictMode>
 );
