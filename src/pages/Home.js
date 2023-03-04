@@ -12,14 +12,13 @@ window.Buffer = window.Buffer || require("buffer").Buffer;
 function Home() {
   const [dState, setDState] = useState(null);
   const [error, setError] = useState(null);
-  //const [newdState, setnewdState] = useState(0);
-
+  
   async function getdata() {
     await axios
       .get(`http://localhost:3000/product`)
       .then((response) => {
         setDState(response.data);
-        console.log(response.data);
+        //console.log(response.data);
       })
       .catch((error) => {
         setError(error);
@@ -30,7 +29,14 @@ function Home() {
   }, []);
 
   if (error) return `Error: ${error.message}`;
-  if (!dState) return "No dState!";
+  if (!dState) return (
+    <>
+      "Loading data!"
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </>
+  );
 
   // const data = [
   //   { id: 1, name: "name1" },
@@ -39,7 +45,7 @@ function Home() {
   //   { id: 4, name: "name4" },
   // ];
 
-  console.log("dState  from homeApp.js: ", dState);
+  //console.log("dState  from homeApp.js: ", dState);
   
   let data = [...dState.data];
   for (let i = 0; i < data.length; i++) {

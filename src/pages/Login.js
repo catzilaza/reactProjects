@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { NavLink } from "react-router-dom";
-import {makelogin} from "../function/login";
-import Header from "../component/header/Header";
+//import {makelogin} from "../function/login";, getUserStore
+import { storeUser, login } from "../store/userSlice";
+import axios from "axios";
 
 function Login() {
-
-  const [data, setData] = useState({    
+  const [data, setData] = useState({
     email: "",
     password: "",
+  });
+
+  const [statusResponse, setStatusResponse] = useState({
+    email: "",
+    username: "",
+    userID: "",
+    isAdmin: "",
+    token: "",
+    status: "",
+    message: "",
+  });
+
+  storeUser.subscribe(() => {
+    console.log(
+      "Login storeUser.subscribe storeUser.getState(): ",
+      storeUser.getState()
+    );
   });
 
   const handleChange = (event) => {
@@ -16,11 +33,58 @@ function Login() {
   };
 
   const handleOnSubmit = async (event) => {
-    event.preventDefault();    
-    
+    event.preventDefault();
     console.log("handleOnSubmit");
-    makelogin(data);
-  }
+    //console.log("handleOnSubmit", storeUser.dispatch(getUserStore()));
+
+    await axios
+      .post(process.env.REACT_APP_API + "users/login", data)
+      .then((response) => {
+        console.log(response);
+        console.log("STATUS : ", response.data.status);
+        console.log("MESSAGE : ", response.data.message);
+        setStatusResponse({
+          email: response.data.email,
+          userID: response.data.userID,
+          username: response.data.username,
+          isAdmin: response.data.isAdmin,
+          token: response.data.token,
+          status: response.data.status,
+          message: response.data.message,
+        });
+        localStorage.setItem("token", response.data.token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    console.log("StatusResponse xxx", statusResponse);
+    storeUser.dispatch(login(statusResponse));
+    console.log(
+      "StatusResponse xxx --> storeUser.getState() : ",
+      storeUser.getState()
+    );
+
+    //let response = makelogin(data);
+    //console.log("response : ", response);
+    // let dataResponse = {
+    //   userID : response.data.userID,
+    //   username : response.data.username,
+    //   email : response.data.email,
+    //   token : response.data.token,
+    // }
+    // storeUser.dispatch(login(dataResponse));
+  };
+
+  useEffect(() => {
+    console.log(
+      "useEffect Login() --> store.subscribe : ",
+      storeUser.getState()
+    );
+    // storeUser.subscribe(()=>{
+    //   console.log("useEffect Login() --> store.subscribe : ", storeUser.getState().name);
+    // });
+  }, []);
 
   // async function handleSubmitLoginForm(event) {
   //   event.preventDefault();
@@ -63,9 +127,6 @@ function Login() {
   return (
     <div className="Login-App">
       <div className="container d-flex flex-column justify-content-center align-items-center">
-        <div>
-          <Header></Header>
-        </div>
         <div className="row">
           <NavLink
             to="/"
@@ -96,7 +157,6 @@ function Login() {
                 className="row text-center"
                 //onSubmit={handleSubmitLoginForm}
                 onSubmit={handleOnSubmit}
-
               >
                 <div className="row mb-2">
                   <label htmlFor="labelemail" className="visually-hidden">
@@ -140,8 +200,7 @@ function Login() {
 
 export default Login;
 
-
-    /* 
+/* 
         const fetchOptions = {
       method: "POST",
       headers: {

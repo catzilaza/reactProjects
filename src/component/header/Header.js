@@ -1,34 +1,44 @@
 import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
-//import { configureStore } from "@reduxjs/toolkit";
-import { counterSlice, store } from "../../store/cartSlice";
-
+import { store } from "../../store/cartSlice";
+import { storeUser } from "../../store/userSlice";
 
 function Header() {
-
+  const [userData, setUserData] = useState({
+    username: "",
+    token: "",
+  });
   const [cartValue, setCartValue] = useState(0);
-  var value = 0;  
+  var value = 0;
+
+  // storeUser.subscribe(() => {
+  //   console.log("Header() storeUSER.subscribe : ", storeUser.getState());
+  // });
 
   store.subscribe(() => {
-    console.log("Header() store.subscribe : ", store.getState().value); 
-    console.log("Header() counterSlice.name : ", counterSlice.name);    
-    console.log("Header() cartValue store.subscribe : ", cartValue); 
-    value= store.getState().value;
-    console.log("value : ", value);          
-  }); 
+    console.log("Header() store.subscribe : ", store.getState());
+    value = store.getState().value;
+  });
 
   //store.dispatch(incremented());
-
-  useEffect(()=>{
-    store.subscribe(()=>{
-      console.log("BEFORE Header() useEffect --> store.subscribe : ", store.getState().value);
+  useEffect(() => {
+    store.subscribe(() => {
+      console.log(
+        "useEffect Header() --> store.subscribe : ",
+        store.getState().value
+      );
       setCartValue(value);
     });
-    //setCartValue(value);
+
+    setUserData({
+      username: storeUser.getState().username,
+      token: storeUser.getState().token,
+    });
   }, [value]);
 
-  console.log("Header() cartValue : ", cartValue);
+  // console.log(" HEADER --> storeUser.getState()", storeUser.getState());
+  // console.log("userData", userData);
 
   return (
     <>
@@ -133,14 +143,22 @@ function Header() {
               >
                 Register
               </Link>
-              <Link
-                to="/cart"
-                className="btn btn-outline-success mx-1"
-                type="button"
-              >
-                CART
-                <span className="badge text-bg-danger mx-1">{cartValue}</span>
-              </Link>
+              {userData.token.length === 0 ? (
+                ""
+              ) : (
+                <>
+                  <Link
+                    to="/cart"
+                    className="btn btn-outline-success mx-1"
+                    type="button"
+                  >
+                    {userData.username} CART
+                    <span className="badge text-bg-danger mx-1">
+                      {cartValue}
+                    </span>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </nav>

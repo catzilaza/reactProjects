@@ -71,7 +71,7 @@ function TableReact() {
         </table>
       </div>
       <div className="container">
-        <table class="table" id="myTable" >
+        <table className="table" id="myTable" >
           <thead id="myTableThead">
             <tr id="myTableTr" >
               <th scope="col"  id="myTableTh" data-label="S.no">#</th>
@@ -80,7 +80,7 @@ function TableReact() {
               <th scope="col"  id="myTableTh" data-label="S.no">Handle</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider" id="myTableTbody"  >
+          <tbody className="table-group-divider" id="myTableTbody"  >
             <tr id="myTableTr"  >
               <th scope="row"  id="myTableTh" data-label="S.no">1</th>
               <td id="myTableTd" data-label="S.no">Mark</td>
@@ -95,7 +95,7 @@ function TableReact() {
             </tr>
             <tr id="myTableTr" >
               <th scope="row"  id="myTableTh" data-label="S.no">3</th>
-              <td colspan="2" id="myTableTd" data-label="S.no">Larry the Bird</td>
+              <td colSpan="2" id="myTableTd" data-label="S.no">Larry the Bird</td>
               <td id="myTableTd" data-label="S.no">@twitter</td>
             </tr>
           </tbody>

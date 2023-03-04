@@ -18,6 +18,8 @@ function Admin() {
   const [title, setTitle] = useState(null);
   const [image, setImg] = useState(null);
 
+  //const [loading, setLoading] = useState(false);
+
   //const [deleteProductID, setdeleteProductID] = useState(null);
 
   // async  function handleSubmitInsertProductForm(event) {
@@ -74,7 +76,14 @@ function Admin() {
 
   if (error) return `Error: ${error.message}`;
   if (!datas) {
-    return "No data!";
+    return (
+      <>
+        "Loading data!"
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </>
+    );
   } else {
     datat = [...datas];
     for (let i = 0; i < datat.length; i++) {
@@ -262,13 +271,17 @@ function Admin() {
                   <i className="fas fa-tachometer-alt fs-2 me-2"></i>Home
                 </Link>
               </li>
-              <Link to="/landing" className="list-group-item">
-                <i className="fas fa-project-diagram primary-text fs-2 me-2"></i>
-                A Landing Page
-              </Link>
               <li className="list-group-item">
-                <i className="fas fa-chart-line primary-text fs-2 me-2"></i>A
-                fourth item
+                <Link to="/landing">
+                  <i className="fas fa-project-diagram primary-text fs-2 me-2"></i>
+                  A Landing Page
+                </Link>
+              </li>
+              <li className="list-group-item">
+                <Link to="/user">
+                  <i className="fas fa-chart-line primary-text fs-2 me-2"></i>A
+                  User Page
+                </Link>
               </li>
               <li className="list-group-item">
                 <i className="fas fa-paperclip primary-text fs-2 me-2"></i>

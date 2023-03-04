@@ -2,35 +2,32 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 //export const initialStateValue = 0;
 export const userSlice = createSlice({
-  name: "userStore",
-  initialState: {
-    user: [],
-    value: "userStore",
-    loading: false
-
-    /*
-    userID: "000",
-    username: "ขนมคุ๊กกี้งาดำ",
-    email: "dessert",
-    password: "",
-    token: 0,
-    */
+  name: "counteruser",
+  initialState: {   
+    userID: "",
+    username: "",
+    isAdmin: "",
+    email: "",    
+    token: "",  
 
   },
-  reducers: {
-    /*
+  reducers: {    
     getUserStore: (state) => {
         console.log(`Information userStore
                       userID : ${state.userID}
                       username : ${state.username}
+                      isAdmin: ${state.isAdmin}
                       email : ${state.email}
                       password : ${state.password}
                       token : ${state.token}`);
     },
-    */
+    
     login: (state, action) => {
-        state.user = action.payload;
-        state.value = "Login Status";
+        state.userID = action.payload.userID;
+        state.username = action.payload.username;
+        state.isAdmin = action.payload.isAdmin;
+        state.email = action.payload.email;
+        state.token = action.payload.token;
     },
     logout: (state) => {        
         state.value = "Logout Status";
@@ -38,7 +35,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { getUserStore, login, logout } = userSlice.actions;
 
 export const storeUser = configureStore({
   reducer: userSlice.reducer,

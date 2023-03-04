@@ -82,24 +82,24 @@ function TableAdmin(props) {
 
   return (
     <div className="container-fluid text-center">
-      <table className="table bg-white rounded shadow-sm table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">รูปขนม</th>
-            <th scope="col">ชื่อขนม</th>
-            <th scope="col">ราคาต่อหน่วย</th>
-            <th scope="col">จำนวนสินค้า</th>
-            <th scope="col">ลบสินค้า</th>
-            <th scope="col">แก้ไขรายการ</th>
+      <table className="table bg-white rounded shadow-sm table-hover" id="myTable">
+        <thead id="myTableThead">
+          <tr id="myTableTr">
+            <th scope="col" id="myTableTh" data-label="S.no">#</th>
+            <th scope="col" id="myTableTh" data-label="รูปขนม">รูปขนม</th>
+            <th scope="col" id="myTableTh" data-label="ชื่อขนม">ชื่อขนม</th>
+            <th scope="col" id="myTableTh" data-label="ราคาต่อหน่วย">ราคาต่อหน่วย</th>
+            <th scope="col" id="myTableTh" data-label="จำนวนสินค้า">จำนวนสินค้า</th>
+            <th scope="col" id="myTableTh" data-label="ลบสินค้า">ลบสินค้า</th>
+            <th scope="col" id="myTableTh" data-label="แก้ไขรายการ">แก้ไขรายการ</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="myTableTbody">
           {datas.map((item) => {
             return (
-              <tr key={item.productID}>
-                <td>{item.productID}</td>
-                <td>
+              <tr id="myTableTr" key={item.productID} >
+                <td id="myTableTd">{item.productID}</td>
+                <td id="myTableTd">
                   <img
                     // {item.itempic}
                     src={`data:image/png;base64, ${item.img.data.data.toString(
@@ -111,10 +111,10 @@ function TableAdmin(props) {
                   />
                   {}
                 </td>
-                <td>{item.name}</td>
-                <td>{item.price}</td>
-                <td>{item.quantity}</td>
-                <td>
+                <td id="myTableTd">{item.name}</td>
+                <td id="myTableTd">{item.price}</td>
+                <td id="myTableTd">{item.quantity}</td>
+                <td id="myTableTd">
                   <Link
                     to="#5"
                     type="button"
@@ -131,7 +131,7 @@ function TableAdmin(props) {
                     />
                   </Link>
                 </td>
-                <td>
+                <td id="myTableTd">
                   <Link
                     to="#5"
                     type="button"

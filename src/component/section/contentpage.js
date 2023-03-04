@@ -1,25 +1,47 @@
 import React, { useState } from "react";
 //import data from "../../dataMock/dataMock";
-import { incremented, printed } from "../../store/cartSlice";
-import { store } from "../../store/cartSlice";
+import { store, incremented, printed } from "../../store/cartSlice";
+import { storeUser } from "../../store/userSlice";
 
 function Contentpage(props) {
-  const [datas] = useState(props.datas);  
+  const [datas] = useState(props.datas);
 
   store.subscribe(() => {
-    console.log("Contentpage store.subscribe : ", store.getState().value);   
+    console.log("Contentpage store.subscribe : ", store.getState().value);
+  });
+
+  storeUser.subscribe(() => {
+    console.log("Contentpage storeUSER.subscribe : ", storeUser.getState());
   });
 
   function handleOnClickBuy() {
+
+    // storeUser.subscribe(() => {
+    //   console.log("Contentpage storeUSER.subscribe : ", storeUser.getState());
+    // });
+    
+    let username = storeUser.getState().username;
+    let token = storeUser.getState().token;
+    
+    if (username.trim('').length === 0 && token.trim('').length === 0) {
+      console.log("Erro handleOnClickBuy : ");
+      alert("ERROR Add to cart : PLEASE LOGIN BEFORE MAKE BUY ITEMS!");
+      return;
+    }
+
     alert("Add to cart");
+    console.log("Add to cart by BUYER: ", storeUser.getState());   
+    console.log('username : ', username);
     store.dispatch(incremented());
-    store.dispatch(printed({
-      productID: "005",
-      name: "ขนมคุ๊กกี้งาดำ",
-      price: "600",
-      quantity: "1000",
-      value: 0,
-    }));
+    store.dispatch(
+      printed({
+        productID: "005",
+        name: "ขนมคุ๊กกี้งาดำ",
+        price: "600",
+        quantity: "1000",
+        value: 0,
+      })
+    );
   }
 
   const contentpage_card = (item) => {
