@@ -12,7 +12,7 @@ function UserPage() {
 
   async function getAlldata() {
     await axios
-      .get(`http://localhost:3000/user`)
+      .get(`https://good-gold-bee-cap.cyclic.app/user`)
       .then((response) => {
         //console.log("response : ", response.data.user);
         setData(response.data.user);

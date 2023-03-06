@@ -12,13 +12,14 @@ window.Buffer = window.Buffer || require("buffer").Buffer;
 function Home() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  
+
   async function getdata() {
     await axios
-      .get(`http://localhost:3000/product`)
+      .get('http://localhost:3000/product')
       .then((response) => {
-        setData(response.data);
-        //console.log(response.data);
+        setData(response.data);        
+        //console.log(response.data);`http://localhost:3000/product`
+        //'https://good-gold-bee-cap.cyclic.app/product'
       })
       .catch((error) => {
         setError(error);
@@ -29,14 +30,15 @@ function Home() {
   }, []);
 
   if (error) return `Error: ${error.message}`;
-  if (!data) return (
-    <>
-      "Loading data!"
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    </>
-  );
+  if (!data)
+    return (
+      <>
+        "Loading data!"
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </>
+    );
 
   // const data = [
   //   { id: 1, name: "name1" },
@@ -46,10 +48,12 @@ function Home() {
   // ];
 
   //console.log("dState  from homeApp.js: ", dState);
-  
+
   let dataTransform = [...data.data];
   for (let i = 0; i < dataTransform.length; i++) {
-    dataTransform[i].img.data.data = new Buffer.from(dataTransform[i].img.data.data);
+    dataTransform[i].img.data.data = new Buffer.from(
+      dataTransform[i].img.data.data
+    );
   }
 
   return (

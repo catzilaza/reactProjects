@@ -37,7 +37,7 @@ function Admin() {
   if (!data) {
     return (
       <>
-        "No data!"
+        "Loading data!"
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
