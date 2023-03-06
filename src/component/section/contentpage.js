@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 //import data from "../../dataMock/dataMock";
-import { store, incremented, printed } from "../../store/cartSlice";
+import { store, incremented } from "../../store/cartSlice"; //, printed
 import { storeUser } from "../../store/userSlice";
 
 function Contentpage(props) {
-  const [datas] = useState(props.datas);
+  const [data] = useState(props.data);
 
   store.subscribe(() => {
     console.log("Contentpage store.subscribe : ", store.getState().value);
@@ -15,33 +15,19 @@ function Contentpage(props) {
   });
 
   function handleOnClickBuy() {
-
-    // storeUser.subscribe(() => {
-    //   console.log("Contentpage storeUSER.subscribe : ", storeUser.getState());
-    // });
-    
     let username = storeUser.getState().username;
     let token = storeUser.getState().token;
-    
-    if (username.trim('').length === 0 && token.trim('').length === 0) {
+
+    if (username.trim("").length === 0 && token.trim("").length === 0) {
       console.log("Erro handleOnClickBuy : ");
       alert("ERROR Add to cart : PLEASE LOGIN BEFORE MAKE BUY ITEMS!");
       return;
     }
 
     alert("Add to cart");
-    console.log("Add to cart by BUYER: ", storeUser.getState());   
-    console.log('username : ', username);
+    console.log("Add to cart by BUYER: ", storeUser.getState());
+    console.log("username : ", username);
     store.dispatch(incremented());
-    store.dispatch(
-      printed({
-        productID: "005",
-        name: "ขนมคุ๊กกี้งาดำ",
-        price: "600",
-        quantity: "1000",
-        value: 0,
-      })
-    );
   }
 
   const contentpage_card = (item) => {
@@ -71,7 +57,7 @@ function Contentpage(props) {
 
   return (
     <div className="row row-cols-1 row-cols-md-4 g-4">
-      {datas.map((item) => {
+      {data.map((item) => {
         return contentpage_card(item);
       })}
     </div>
@@ -79,3 +65,15 @@ function Contentpage(props) {
 }
 
 export default Contentpage;
+
+/*
+    store.dispatch(
+      printed({
+        productID: "005",
+        name: "ขนมคุ๊กกี้งาดำ",
+        price: "600",
+        quantity: "1000",
+        value: 0,
+      })
+    );
+*/

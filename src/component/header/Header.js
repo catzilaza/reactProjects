@@ -12,16 +12,11 @@ function Header() {
   const [cartValue, setCartValue] = useState(0);
   var value = 0;
 
-  // storeUser.subscribe(() => {
-  //   console.log("Header() storeUSER.subscribe : ", storeUser.getState());
-  // });
-
   store.subscribe(() => {
     console.log("Header() store.subscribe : ", store.getState());
     value = store.getState().value;
   });
 
-  //store.dispatch(incremented());
   useEffect(() => {
     store.subscribe(() => {
       console.log(
@@ -36,9 +31,6 @@ function Header() {
       token: storeUser.getState().token,
     });
   }, [value]);
-
-  // console.log(" HEADER --> storeUser.getState()", storeUser.getState());
-  // console.log("userData", userData);
 
   return (
     <>
@@ -220,3 +212,14 @@ function Header() {
   );
 }
 export default Header;
+
+/*
+  storeUser.subscribe(() => {
+    console.log("Header() storeUSER.subscribe : ", storeUser.getState());
+  });
+
+store.dispatch(incremented());
+
+  console.log(" HEADER --> storeUser.getState()", storeUser.getState());
+  console.log("userData", userData);
+*/

@@ -10,14 +10,14 @@ import { Buffer } from "buffer";
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
 function Home() {
-  const [dState, setDState] = useState(null);
+  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   
   async function getdata() {
     await axios
       .get(`http://localhost:3000/product`)
       .then((response) => {
-        setDState(response.data);
+        setData(response.data);
         //console.log(response.data);
       })
       .catch((error) => {
@@ -29,11 +29,11 @@ function Home() {
   }, []);
 
   if (error) return `Error: ${error.message}`;
-  if (!dState) return (
+  if (!data) return (
     <>
       "Loading data!"
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
       </div>
     </>
   );
@@ -47,9 +47,9 @@ function Home() {
 
   //console.log("dState  from homeApp.js: ", dState);
   
-  let data = [...dState.data];
-  for (let i = 0; i < data.length; i++) {
-    data[i].img.data.data = new Buffer.from(data[i].img.data.data);
+  let dataTransform = [...data.data];
+  for (let i = 0; i < dataTransform.length; i++) {
+    dataTransform[i].img.data.data = new Buffer.from(dataTransform[i].img.data.data);
   }
 
   return (
@@ -62,7 +62,7 @@ function Home() {
           <Sideleft></Sideleft>
         </div>
         <div className="row col-sm-10">
-          <Contentpage datas={data}></Contentpage>
+          <Contentpage data={dataTransform}></Contentpage>
         </div>
       </div>
       <div className="row">row3</div>

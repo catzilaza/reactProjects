@@ -64,16 +64,7 @@ function Login() {
       "StatusResponse xxx --> storeUser.getState() : ",
       storeUser.getState()
     );
-
-    //let response = makelogin(data);
-    //console.log("response : ", response);
-    // let dataResponse = {
-    //   userID : response.data.userID,
-    //   username : response.data.username,
-    //   email : response.data.email,
-    //   token : response.data.token,
-    // }
-    // storeUser.dispatch(login(dataResponse));
+    
   };
 
   useEffect(() => {

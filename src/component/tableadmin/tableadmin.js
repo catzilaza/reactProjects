@@ -4,10 +4,7 @@ import axios from "axios";
 
 function TableAdmin(props) {
 
-
-  const [datas] = useState(props.datas);
-
-  //const [error, setError] = useState(null);
+  const [datas] = useState(props.datas);  
 
   const [productID, setProductID] = useState(null);
   const [name, setName] = useState(null);
@@ -364,14 +361,14 @@ function TableAdmin(props) {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-primary"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
-              {/* <button type="submit" className="btn btn-primary">
-                Save changes
-              </button> */}
+              <button type="reset" className="btn btn-primary">
+                Reset
+              </button>
             </div>
           </div>
         </div>

@@ -36,25 +36,27 @@ const App_router = createBrowserRouter(
 );
 
 function App() {
-  //const idToken = localStorage.token;
-  //if (idToken) {
-  //  console.log("idToken : ", idToken);
-    //alert(`idtoken : ${idToken}`);
-    //   let authtoken = idToken;
-    //   axios.post("http://localhost:3000/authtoken",{},
-    //   {
-    //     headers: {
-    //        authtoken,
-    //     }
-    //   }).then((response)=> {
-      // console.log("response.data");
-      //  make dispatch function 
-   // }).catch((error)=>{
-   //    console.log(error);
-   //})
-  //}
-
   return <RouterProvider router={App_router}></RouterProvider>;
 }
 
 export default App;
+
+/*
+  const idToken = localStorage.token;
+  if (idToken) {
+   console.log("idToken : ", idToken);
+    alert(`idtoken : ${idToken}`);
+      let authtoken = idToken;
+      axios.post("http://localhost:3000/authtoken",{},
+      {
+        headers: {
+           authtoken,
+        }
+      }).then((response)=> {
+      console.log("response.data");
+       make dispatch function 
+   }).catch((error)=>{
+      console.log(error);
+   })
+  }
+*/
