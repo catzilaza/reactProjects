@@ -20,6 +20,7 @@ function Home() {
         setData(response.data);        
         //console.log(response.data);`http://localhost:3000/product`
         //'https://good-gold-bee-cap.cyclic.app/product'
+        //https://crabby-teal-seal.cyclic.app/
       })
       .catch((error) => {
         setError(error);
