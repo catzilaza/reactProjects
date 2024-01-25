@@ -15,7 +15,7 @@ function Home() {
 
   async function getdata() {
     await axios
-      .get('http://localhost:3000/product')
+      .get('https://crabby-teal-seal.cyclic.app/product')
       .then((response) => {
         setData(response.data);        
         //console.log(response.data);`http://localhost:3000/product`
